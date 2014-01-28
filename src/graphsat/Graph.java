@@ -28,6 +28,7 @@ public class Graph {
 	
 	private List[] graph;
 	private ArrayList<int[]> edges;
+	private ArrayList<int[]> nonEdges = null;
 
 	private final int vertexCount;
 	
@@ -69,5 +70,23 @@ public class Graph {
 	
 	public ArrayList getEdges(){
 		return this.edges;
+	}
+	
+	public ArrayList getNonEdges(){
+		if(this.nonEdges == null){
+			this.initNonEdges();
+		}
+		return this.nonEdges;
+	}
+	
+	private void initNonEdges(){
+		this.nonEdges = new ArrayList<>();
+		for(int i = 1; i < this.graph.length; i++){
+			for(int j = i+1; j < this.graph.length; j++){
+				if(!this.graph[i].contains(j)){
+					this.nonEdges.add(new int[] {i, j});
+				}
+			}
+		}
 	}
 }

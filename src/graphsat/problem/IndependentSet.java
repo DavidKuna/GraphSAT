@@ -15,7 +15,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package graphsat;
+package graphsat.problem;
+
+import graphsat.Graph;
+import graphsat.Solver;
 
 /**
  *
@@ -33,7 +36,6 @@ public class IndependentSet extends Solver {
 	@Override
 	protected void print() {
 		if(this.model != null){
-			int[] vertex;
 			int count = 0;
 			System.out.print("Independent set = {");
 			for(int i = 0; i < this.model.length; i++){

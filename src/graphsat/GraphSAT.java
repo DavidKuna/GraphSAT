@@ -17,6 +17,9 @@
  */
 package graphsat;
 
+import graphsat.problem.IndependentSet;
+import graphsat.problem.GraphColoring;
+import graphsat.problem.HamiltonCircle;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -33,8 +36,7 @@ public class GraphSAT {
 	public static void main(String[] args) throws IOException, Exception {
 		try{
 		String filepath = getFilepath(args);
-		int problemType = getTypeOfProblem(args);
-		int k = getK(args);
+		int k, problemType = getTypeOfProblem(args);
 		
 		Loader loader = new Loader();
 		Graph graph = loader.loadGraph(filepath);
@@ -42,20 +44,27 @@ public class GraphSAT {
 		
 		switch(problemType){
 			case 1:
+				 k= getK(args);
 				solver = new GraphColoring(graph, k);
 				break;
 			
 			case 2:
+				k = getK(args);
 				solver = new IndependentSet(graph, k);
 				break;
+				
+			case 3:
+				solver = new HamiltonCircle(graph);
+				break;
+				
 			default:
 				throw new Exception("Invalid type of problem!");
 		}
 		
 		solver.solve();
 		solver.print();
-		} catch(Exception e){
-			System.out.println(e.getMessage());
+		} catch(FileNotFoundException e){
+			System.out.println(e.getMessage() + " " + e.toString());
 		}
 	}
 	
