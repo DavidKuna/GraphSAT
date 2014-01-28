@@ -26,7 +26,7 @@ import graphsat.Solver;
  */
 public class IndependentSet extends Solver {
 	
-	private int k;
+	private final int k;
 
 	public IndependentSet(Graph graph, int k) {
 		super(graph);

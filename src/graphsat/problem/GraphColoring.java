@@ -44,7 +44,7 @@ public class GraphColoring extends Solver {
 			for(int i = 0; i < this.model.length; i++){
 				if(this.model[i] > 0){
 					vertex = this.extractCNFIndex(this.model[i]);
-					System.out.println("Vertex " + vertex[0] + " = " + vertex[1]);
+					System.out.println("Vertex " + vertex[0] + " has a color " + vertex[1]);
 				}
 			}
 		}else{
