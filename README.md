@@ -6,6 +6,7 @@ Graph problems solver
 Autor: David Kuna (KUN0036)
 
 Řešené problémy:
+
 	1. Graph coloring
 		- Jsou vytvořeny proměnné pro všechny kombinace vrcholů a barev
 		- Formule se skládá z omezení pro vrcholy (musí platit právě jedna barva pro každý vrchol) a z omezení pro hrany (vrcholy spojené hranou nesmí být stejné barvy)
