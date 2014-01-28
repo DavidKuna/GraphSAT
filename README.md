@@ -1,0 +1,4 @@
+GraphSAT
+========
+
+Graph problems solver
